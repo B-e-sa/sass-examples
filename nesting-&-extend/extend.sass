@@ -1,0 +1,15 @@
+// regras de css podem ser extendidas para outras,
+// como um compartilhamento. no caso abaixo, os dois
+// botões aproveitarão da altura e largura, mas os valores
+// de borda e background serão sobrescrevidos:
+button 
+    border: 1px solid red
+    background-color: red
+    width: 100px
+    height: 10px
+
+.button-active
+    @extend button 
+    border: 1px solid blue
+    background-color: blue
+

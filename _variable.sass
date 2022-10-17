@@ -1,0 +1,38 @@
+// variáveis
+$primary-color: #FFFF
+$secundary-color: #0000
+
+$font-color: #9c954b
+$font-family: Sans, 'serif'
+
+$default-width: 100vw
+$default-heigth: 100vh
+
+// variáveis tem escopo de bloco, então se 
+// utilizassemos, por exemplo:
+p 
+    $default-color: yellow
+    color: $default-color
+a 
+    $default-color: green
+    color: $default-color
+
+// isso seria igual a:
+p
+    color: yellow 
+a 
+    color: green 
+
+// mas caso seja necessário o uso global da variável,
+// pode-se utilizar o !global:
+p 
+    $default-color: red !global 
+    color: $default-color
+a 
+    color: $default-color
+    
+// seria igual a:
+p
+    color: red
+a
+    color: red

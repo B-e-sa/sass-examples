@@ -1,0 +1,46 @@
+@use 'variables'
+
+// formas de reaproveitar multiplas regras comuns e repetitivas de css
+// todo conteúdo que utilizar o mixing container terá a mesma altura, 
+// largura e fonte de texto
+@mixin container 
+    width: variables.$default-width
+    heigth: variables.$default-heigth
+    font: variables.$font-family
+
+@mixin center-flex-container 
+    display: flex
+    align-content: center
+    justify-content: center
+
+@mixin center-flex-column
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+// uso dinâmico de regra, como uma função, o mixins vai esperar um parâmetro
+// em seu uso. no mixin abaixo, se espera 2 parâmetros (cor e fonte), os dois
+// tem valores default (respectivamente 'black' e sans-serif). exemplo:
+//
+// @include mixin.container-color('cor', 'font')
+@mixin container-color($color: black, $font: sans-serif)
+    background-color: $color
+    font: $font
+
+// um bom uso de parâmetros seria a compatibilidade com navegadores, por exemplo:
+@mixin clip($rule)
+    -moz-background-clip: $rule
+    -webkit-background-clip: $rule
+    background-clip: $rule
+
+// uso para definição repetitiva de conteúdo, nesse caso a resolução mobile
+// todo conteúdo mobile utilizará as regras a partir de 425px. exemplo:
+//
+// @include mixin.mobile
+//     padding: 3px
+//     width: 3rem
+@mixin mobile 
+    @media(max-width: 425px)
+        @content 
+

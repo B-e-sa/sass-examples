@@ -1,0 +1,32 @@
+// importação (@use == @import)
+// variáveis
+@use 'variables'
+// mixins
+@use 'mixins'
+
+body
+    background-image: linear-gradient(variables.$primary-color, variables.$secundary-color)
+
+    // uso de mixin
+    @include mixins.center-flex-container
+
+    h1
+        color: variables.$font-color
+
+    #container 
+        @include mixins.container
+        @include mixins.center-flex-container
+        @include mixins.container-color('red')
+        
+        @include mixins.mobile 
+
+
+        &-brand
+            @include mixins.container
+                @include mixins.center-flex-column
+    
+    button 
+        background-color: variables.$primary-color
+
+        &:hover
+            background-color: variables.$secundary-color

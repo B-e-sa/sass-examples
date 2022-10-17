@@ -1,0 +1,16 @@
+// o if else avaliará se a expressão retorná
+// um valor falso ou verdadeiro
+//
+// !!!ATENÇÃO!!!
+// valores como listas/strings vazias e o número 0
+// retornarão valores verdadeiros
+@mixin gradient($fColor, $sColor)
+
+    // se a segunda cor for declarada, haverá
+    // um gradiente entre as duas respectivas cores
+    @if $sColor
+        color: linear-gradient($fColor, $sColor)
+
+    // se não, a cor será preta
+    @else
+        color: black

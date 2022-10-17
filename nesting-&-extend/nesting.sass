@@ -1,0 +1,30 @@
+// algumas regras de css possuem o mesmo prefixo, como:
+// FONT-family, FONT-size, FONT-weight; então elas podem
+// ser excritas de uma forma mais simples e compacta:
+#container
+    font 
+        size: 12pt
+        weigth: bold 
+        family: sans-serif
+
+// isso seria identico a:
+#container
+    font-size: 12pt
+    font-weight: bold 
+    font-family: sans-serif
+
+// também há o nesting de seletores, como: 
+body
+    h1
+
+        color: blue
+        
+        &:hover 
+            color: red 
+
+// que seria idêntico a:
+body h1
+    color: blue
+
+body h1:hover
+    color: red
